@@ -60,7 +60,7 @@ fn main() {
     println!("Speed: {}", car.speed());
     car.honk();
     car.lock_doors();
-    car.into_neutral();
+    car.into_park();
     println!("Speed: {}", car.speed());
 }
 ```
