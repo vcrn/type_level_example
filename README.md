@@ -8,7 +8,7 @@ In this example, it's applied to a car. Depending on what gear it's in, we shoul
 
 There's another approach, that this example code presents:
 * One `trait Gear`
-* One struct for each available concrete gear, which implements `Gear` in an empty block (acting like a `marker trait`). In our case, we'll stick with two gears: `Park` and `Drive`.
+* One struct for each available concrete gear, which implements `Gear` in an empty block. In our case, we'll stick with two gears: `Park` and `Drive`.
 * One generic `struct Car<G: Gear>`, with a `gear: PhantomData` field to keep track of what concrete type implementing `Gear` that we're using.
 * Finally, and optionally if you'd like to have it all wrapped up in one type, an enum that wraps around `struct Car<G: Gear>`, whose variants map to the different types implementing `Gear`.
 
