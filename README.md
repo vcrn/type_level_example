@@ -1,7 +1,7 @@
 # Type-level programming example
 This is a simple example showcasing a powerful concept in Rust sometimes referred to as `Type-level programming`. 
 
-In this example, it's applied to a car. Depending on what gear it's in, we should be permitted to do different things, and some things should be available irrespective of what gear we're in. We'd also like to be able to change gear in a convenient manner. Some simple designs to handle this could:
+In this example, it's applied to a car. Depending on what gear it's in, we should be permitted to do different things, and some things should be available irrespective of what gear we're in. We'd also like to be able to change gear in a convenient manner. Some simple designs to handle this could be:
 * Create an `enum Gear` with the variants you'd like to use, a `struct Car` that among other things contains the field `gear: Gear`, and let the different methods act in different ways depending on the variant in `gear`.
 * Create an `enum CarGear` that wraps around some `struct Car`, where `struct Car` doesn't contain a `gear` field, since this is handled in the variants wrapping `struct Car`: This way, every method will need to implement a `match` statement if it interacts with any data of `struct Car`, even ones that are available for all variants and should act in identical ways. These `match`s will also be the sole guards for limiting functionality of the different gears.
 * One `struct CarGear` for every gear, creating completely different types where methods they have in common will need to be implemented for every type.
